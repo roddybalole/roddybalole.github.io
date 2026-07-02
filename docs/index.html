@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQBNHDE6QJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BQBNHDE6QJ');
-</script>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KBB BIO — Fraîcheur & Qualité au rendez-vous !</title>
@@ -147,8 +139,6 @@ img{max-width:100%;display:block}
 .pricing-action{text-align:right}
 .pricing-action .btn-small{padding:0.5rem 1rem;border-radius:8px;font-size:0.8rem;font-weight:600;background:var(--coral);color:var(--white);border:none;cursor:pointer;transition:all 0.2s ease}
 .pricing-action .btn-small:hover{background:var(--coral-light);transform:scale(1.05)}
-.pricing-image-full{margin-top:3rem;border-radius:20px;overflow:hidden;border:1px solid var(--glass-border)}
-.pricing-image-full img{width:100%;display:block}
 
 /* TIKTOK */
 .tiktok-section{background:var(--ocean);position:relative;overflow:hidden}
@@ -202,26 +192,34 @@ img{max-width:100%;display:block}
 .whatsapp-msg.sent{background:#005c4b;align-self:flex-end;border-top-right-radius:2px}
 .whatsapp-msg-time{font-size:0.65rem;color:rgba(255,255,255,0.5);text-align:right;margin-top:0.3rem}
 
-/* SEASONS */
-.seasons-section{background:var(--ocean-dark)}
-.seasons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
-.season-card{background:linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border:1px solid var(--glass-border);border-radius:24px;padding:2rem;transition:all var(--tn);position:relative;overflow:hidden}
-.season-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;opacity:0;transition:opacity var(--tn)}
-.season-card:hover::before{opacity:1}
-.season-card:hover{transform:translateY(-8px);border-color:rgba(0,168,232,0.2)}
-.season-card.spring::before{background:linear-gradient(90deg,#22c55e,#4ade80)}
-.season-card.summer::before{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
-.season-card.autumn::before{background:linear-gradient(90deg,#f97316,#fb923c)}
-.season-card.winter::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
-.season-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.2rem}
-.season-card.spring .season-icon{background:rgba(34,197,94,0.15)}
-.season-card.summer .season-icon{background:rgba(245,158,11,0.15)}
-.season-card.autumn .season-icon{background:rgba(249,115,22,0.15)}
-.season-card.winter .season-icon{background:rgba(59,130,246,0.15)}
-.season-name{font-size:1.3rem;font-weight:700;margin-bottom:0.3rem}
-.season-period{color:var(--gray-400);font-size:0.85rem;margin-bottom:1.2rem}
-.season-products{display:flex;flex-wrap:wrap;gap:0.5rem}
-.season-tag{background:var(--glass);border:1px solid var(--glass-border);padding:0.3rem 0.8rem;border-radius:50px;font-size:0.8rem;color:var(--gray-200)}
+/* INSTAGRAM */
+.instagram-section{background:linear-gradient(135deg, #833ab4, #fd1d1d, #f77737, #fcaf45, #ffdc80);position:relative;overflow:hidden}
+.instagram-section::before{content:'';position:absolute;inset:0;background:rgba(10,37,64,0.3);backdrop-filter:blur(2px)}
+.instagram-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.instagram-content h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;color:var(--white)}
+.instagram-content h2 span{background:linear-gradient(135deg,#fff,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.instagram-content p{color:rgba(255,255,255,0.9);font-size:1.1rem;margin-bottom:2rem;max-width:500px}
+.instagram-features{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+.instagram-feature{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.15);padding:1rem 1.5rem;border-radius:12px;backdrop-filter:blur(10px)}
+.instagram-feature i{font-size:1.2rem;color:#fff}
+.instagram-feature span{font-weight:500;color:var(--white)}
+.instagram-btn-big{display:inline-flex;align-items:center;gap:0.8rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:var(--white);padding:1.2rem 2.5rem;border-radius:50px;font-weight:700;font-size:1.1rem;transition:all var(--tn);box-shadow:0 10px 30px rgba(131,58,180,0.3);border:2px solid rgba(255,255,255,0.2)}
+.instagram-btn-big:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(131,58,180,0.5)}
+.instagram-handle{display:block;margin-top:1rem;color:rgba(255,255,255,0.8);font-size:0.9rem}
+.instagram-visual{display:flex;justify-content:center;align-items:center}
+.instagram-card{width:320px;background:var(--white);border-radius:24px;padding:2rem;box-shadow:0 30px 60px rgba(0,0,0,0.4);text-align:center;position:relative;overflow:hidden}
+.instagram-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#833ab4,#fd1d1d,#f77737,#fcaf45,#ffdc80)}
+.instagram-card-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;padding:3px}
+.instagram-card-avatar-inner{width:84px;height:84px;border-radius:50%;background:var(--ocean);display:flex;align-items:center;justify-content:center}
+.instagram-card-avatar-inner i{font-size:2.5rem;color:var(--white)}
+.instagram-card-name{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;color:var(--ocean);margin-bottom:0.3rem}
+.instagram-card-handle{color:var(--gray-400);font-size:0.9rem;margin-bottom:1.5rem}
+.instagram-card-stats{display:flex;justify-content:center;gap:2rem;margin-bottom:1.5rem}
+.instagram-card-stat{text-align:center}
+.instagram-card-stat-num{font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ocean)}
+.instagram-card-stat-label{font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px}
+.instagram-card-btn{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:var(--white);padding:0.8rem 2rem;border-radius:50px;font-weight:600;font-size:0.9rem;transition:all var(--tn)}
+.instagram-card-btn:hover{transform:scale(1.05);box-shadow:0 8px 25px rgba(131,58,180,0.4)}
 
 /* ABOUT */
 .about-section{background:var(--ocean)}
@@ -253,9 +251,30 @@ img{max-width:100%;display:block}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,168,232,0.1)}
 .form-group input::placeholder,.form-group textarea::placeholder{color:var(--gray-500)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+/* MULTI-PRODUCT ORDER */
+.order-products-list{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem}
+.order-product-item{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;padding:1.2rem;display:grid;grid-template-columns:1fr auto auto auto;gap:1rem;align-items:center;transition:all 0.2s ease}
+.order-product-item:hover{border-color:rgba(0,168,232,0.2)}
+.order-product-item .prod-select{flex:1}
+.order-product-item .prod-select select{width:100%;padding:0.7rem 1rem;background:rgba(255,255,255,0.05);border:1px solid var(--glass-border);border-radius:10px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.9rem}
+.order-product-item .prod-select select option{background:var(--ocean);color:var(--white)}
+.order-product-item .prod-qty{width:100px}
+.order-product-item .prod-qty input{width:100%;padding:0.7rem 1rem;background:rgba(255,255,255,0.05);border:1px solid var(--glass-border);border-radius:10px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.9rem;text-align:center}
+.order-product-item .prod-price{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--cyan);min-width:80px;text-align:right}
+.order-product-item .prod-remove{width:36px;height:36px;border-radius:50%;background:rgba(255,107,53,0.15);color:var(--coral);border:1px solid rgba(255,107,53,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s ease;font-size:0.9rem}
+.order-product-item .prod-remove:hover{background:var(--coral);color:var(--white)}
+.add-product-btn{width:100%;padding:0.9rem;border-radius:12px;background:transparent;border:2px dashed var(--glass-border);color:var(--gray-300);font-weight:600;font-size:0.9rem;cursor:pointer;transition:all var(--tn);display:flex;align-items:center;justify-content:center;gap:0.5rem;font-family:'Inter',sans-serif}
+.add-product-btn:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,168,232,0.05)}
+
 .order-summary{background:linear-gradient(145deg,rgba(0,168,232,0.1),rgba(0,168,232,0.02));border:1px solid rgba(0,168,232,0.2);border-radius:20px;padding:2rem;margin-top:1.5rem}
 .order-summary h4{font-size:1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
 .order-summary h4 i{color:var(--cyan)}
+.order-summary-items{max-height:200px;overflow-y:auto;margin-bottom:1rem}
+.order-summary-item{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--glass-border)}
+.order-summary-item:last-child{border-bottom:none}
+.order-summary-item-name{color:var(--gray-200);font-size:0.9rem}
+.order-summary-item-price{font-family:'Outfit',sans-serif;font-weight:700;color:var(--cyan);font-size:0.9rem}
 .order-total{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid var(--glass-border);margin-top:1rem}
 .order-total-label{font-size:0.9rem;color:var(--gray-300)}
 .order-total-amount{font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:900;color:var(--cyan)}
@@ -281,6 +300,7 @@ img{max-width:100%;display:block}
 .footer-social{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all var(--tn)}
 .footer-social.whatsapp{background:#25d366;color:var(--white)}
 .footer-social.tiktok{background:#000;color:var(--white);border:1px solid rgba(255,255,255,0.2)}
+.footer-social.instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:var(--white)}
 .footer-social:hover{transform:translateY(-3px) scale(1.1)}
 .footer-bottom{border-top:1px solid var(--glass-border);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-bottom p{color:var(--gray-500);font-size:0.85rem}
@@ -293,18 +313,20 @@ img{max-width:100%;display:block}
 .float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--white);cursor:pointer;transition:all var(--tn);box-shadow:0 4px 15px rgba(0,0,0,0.3);border:none;position:relative}
 .float-btn.whatsapp{background:#25d366;animation:pulse-glow 2s ease-in-out infinite}
 .float-btn.tiktok{background:#000;border:2px solid rgba(255,255,255,0.3)}
+.float-btn.instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737)}
 .float-btn:hover{transform:scale(1.15) translateY(-3px)}
 .float-btn .tooltip{position:absolute;right:70px;top:50%;transform:translateY(-50%);background:var(--ocean);color:var(--white);padding:0.4rem 0.8rem;border-radius:8px;font-size:0.8rem;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.2s ease;border:1px solid var(--glass-border)}
 .float-btn:hover .tooltip{opacity:1;right:75px}
 
 /* RESPONSIVE */
-@media(max-width:1024px){.tiktok-grid,.whatsapp-grid,.about-grid,.order-grid{grid-template-columns:1fr;gap:3rem}.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,37,64,0.95);backdrop-filter:blur(20px);flex-direction:column;padding:1.5rem;gap:1.2rem;border-top:1px solid var(--glass-border)}.nav-links.active{display:flex}.nav-mobile-toggle{display:block}.hero-title{font-size:2.2rem}.section{padding:4rem 1.5rem}.products-grid{grid-template-columns:1fr}.tiktok-videos{grid-template-columns:1fr 1fr}.about-values{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column;text-align:center}.float-buttons{bottom:1rem;right:1rem}.pricing-table thead{display:none}.pricing-table tr{display:block;margin-bottom:1rem;background:var(--glass);border-radius:16px;padding:1rem;border:1px solid var(--glass-border)}.pricing-table td{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border-bottom:1px solid var(--glass-border)}.pricing-table td::before{content:attr(data-label);font-weight:600;color:var(--cyan-light);font-size:0.8rem;text-transform:uppercase}.pricing-table td:last-child{border-bottom:none}}
-@media(max-width:480px){.hero-title{font-size:1.8rem}.hero-buttons{flex-direction:column;align-items:center}.btn{width:100%;justify-content:center}.stats-grid{grid-template-columns:1fr}.seasons-grid{grid-template-columns:1fr}}
+@media(max-width:1024px){.tiktok-grid,.whatsapp-grid,.instagram-grid,.about-grid,.order-grid{grid-template-columns:1fr;gap:3rem}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,37,64,0.95);backdrop-filter:blur(20px);flex-direction:column;padding:1.5rem;gap:1.2rem;border-top:1px solid var(--glass-border)}.nav-links.active{display:flex}.nav-mobile-toggle{display:block}.hero-title{font-size:2.2rem}.section{padding:4rem 1.5rem}.products-grid{grid-template-columns:1fr}.tiktok-videos{grid-template-columns:1fr 1fr}.about-values{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column;text-align:center}.float-buttons{bottom:1rem;right:1rem}.pricing-table thead{display:none}.pricing-table tr{display:block;margin-bottom:1rem;background:var(--glass);border-radius:16px;padding:1rem;border:1px solid var(--glass-border)}.pricing-table td{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border-bottom:1px solid var(--glass-border)}.pricing-table td::before{content:attr(data-label);font-weight:600;color:var(--cyan-light);font-size:0.8rem;text-transform:uppercase}.pricing-table td:last-child{border-bottom:none}.order-product-item{grid-template-columns:1fr;gap:0.8rem}.order-product-item .prod-price{text-align:left}.instagram-card{width:100%}}
+@media(max-width:480px){.hero-title{font-size:1.8rem}.hero-buttons{flex-direction:column;align-items:center}.btn{width:100%;justify-content:center}.stats-grid{grid-template-columns:1fr}}
 </style>
 <base target="_blank">
 </head>
 <body>
+
 <!-- NAVIGATION -->
 <nav class="nav" id="nav">
 <div class="nav-inner">
@@ -332,14 +354,14 @@ img{max-width:100%;display:block}
 <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
 </div>
 <div class="hero-waves">
-<svg viewBox="0 0 1440 320" préservéAspectRatio="none">
+<svg viewBox="0 0 1440 320" preserveAspectRatio="none">
 <path fill="rgba(0,168,232,0.15)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
 </svg>
 </div>
 <div class="hero-content">
 <div class="hero-badge"><i class="fas fa-fish"></i><span>Poissons Frais & Fruits de Mer — RDC</span></div>
 <h1 class="hero-title"><span class="highlight">KBB BIO</span><br>Fraîcheur & Qualité<br>au rendez-vous !</h1>
-<p class="hero-subtitle">Découvrez les meilleurs poissons frais et fruits de mer de la République Démocratique du Congo. Livraison rapide, qualite premium, satisfaction garantie.</p>
+<p class="hero-subtitle">Découvrez les meilleurs poissons frais et fruits de mer de la République Démocratique du Congo. Livraison rapide, qualité premium, satisfaction garantie.</p>
 <div class="hero-buttons">
 <a href="#produits" class="btn btn-primary"><i class="fas fa-utensils"></i> Voir nos Produits</a>
 <a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20passer%20une%20commande" class="btn btn-coral" target="_blank"><i class="fab fa-whatsapp"></i> Commander sur WhatsApp</a>
@@ -354,7 +376,7 @@ img{max-width:100%;display:block}
 <div class="stat-card aos">
 <div class="stat-icon cyan"><i class="fas fa-fish"></i></div>
 <div class="stat-number"><span class="counter" data-target="15">0</span>+</div>
-<div class="stat-label">Varietes de Poissons</div>
+<div class="stat-label">Variétés de Poissons</div>
 </div>
 <div class="stat-card aos d1">
 <div class="stat-icon coral"><i class="fas fa-clock"></i></div>
@@ -369,7 +391,7 @@ img{max-width:100%;display:block}
 <div class="stat-card aos d3">
 <div class="stat-icon cyan"><i class="fas fa-award"></i></div>
 <div class="stat-number"><span class="counter" data-target="5">0</span>+</div>
-<div class="stat-label">Années d'Experience</div>
+<div class="stat-label">Années d'Expérience</div>
 </div>
 </div>
 </section>
@@ -436,7 +458,7 @@ img{max-width:100%;display:block}
 </div>
 <div class="product-info">
 <h3 class="product-name">Perche</h3>
-<p class="product-desc">Perche fraîche de qualite</p>
+<p class="product-desc">Perche fraîche de qualité</p>
 <div class="product-price">25 000 <span>FC/kg</span></div>
 <a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20de%20la%20Perche%20%C3%A0%2025%20000%20FC%2Fkg" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
 </div>
@@ -467,7 +489,7 @@ img{max-width:100%;display:block}
 <div class="product-card aos d3">
 <div class="product-image-wrap">
 <img src="https://i.imgur.com/AKxVCre.jpg" alt="Ndakala">
-<span class="product-badge">Economique</span>
+<span class="product-badge">Économique</span>
 </div>
 <div class="product-info">
 <h3 class="product-name">Ndakala (Ekolo)</h3>
@@ -479,13 +501,14 @@ img{max-width:100%;display:block}
 </div>
 </div>
 </section>
+
 <!-- PRICING TABLE -->
 <section class="section pricing-section" id="tarifs">
 <div class="section-inner">
 <div class="section-header aos">
 <div class="section-label">Nos Prix</div>
 <h2 class="section-title">Tableau <span>Tarifaire</span></h2>
-<p class="section-desc">Des prix transparents et compétitifs pour tous nos produits de qualite.</p>
+<p class="section-desc">Des prix transparents et compétitifs pour tous nos produits de qualité.</p>
 </div>
 <div class="pricing-table-wrap aos">
 <table class="pricing-table">
@@ -533,7 +556,7 @@ img{max-width:100%;display:block}
 <img src="https://i.imgur.com/sfAdJPq.png" alt="Sole">
 <div>
 <div class="pricing-prod-name">Sole</div>
-<div class="pricing-prod-tag">Delicate et fondante</div>
+<div class="pricing-prod-tag">Délicate et fondante</div>
 </div>
 </div>
 </td>
@@ -548,7 +571,7 @@ img{max-width:100%;display:block}
 <img src="https://i.imgur.com/DAMlpP6.png" alt="Mabundu">
 <div>
 <div class="pricing-prod-name">Mabundu Gros</div>
-<div class="pricing-prod-tag">Selection premium</div>
+<div class="pricing-prod-tag">Sélection premium</div>
 </div>
 </div>
 </td>
@@ -608,7 +631,7 @@ img{max-width:100%;display:block}
 <img src="https://i.imgur.com/AKxVCre.jpg" alt="Ndakala">
 <div>
 <div class="pricing-prod-name">Ndakala (Ekolo)</div>
-<div class="pricing-prod-tag">Economique</div>
+<div class="pricing-prod-tag">Économique</div>
 </div>
 </div>
 </td>
@@ -619,9 +642,6 @@ img{max-width:100%;display:block}
 </tr>
 </tbody>
 </table>
-</div>
-<div class="pricing-image-full aos d2">
-<img src="https://i.imgur.com/FIA4Ox3.jpg" alt="Tableau des tarifs KBB BIO">
 </div>
 </div>
 </section>
@@ -650,7 +670,7 @@ img{max-width:100%;display:block}
 </div>
 <div class="tiktok-stat">
 <div class="tiktok-stat-num">120</div>
-<div class="tiktok-stat-label">Videos</div>
+<div class="tiktok-stat-label">Vidéos</div>
 </div>
 </div>
 <a href="https://www.tiktok.com/@kbb.bio92" target="_blank" class="tiktok-btn"><i class="fab fa-tiktok"></i> Suivre sur TikTok</a>
@@ -697,7 +717,7 @@ img{max-width:100%;display:block}
 <div class="whatsapp-feature"><i class="fas fa-bolt"></i><span>Réponse en 5 minutes</span></div>
 <div class="whatsapp-feature"><i class="fas fa-camera"></i><span>Photos en direct des produits</span></div>
 <div class="whatsapp-feature"><i class="fas fa-truck"></i><span>Suivi de livraison en temps réel</span></div>
-<div class="whatsapp-feature"><i class="fas fa-shield-alt"></i><span>Paiement sécurisé a la livraison</span></div>
+<div class="whatsapp-feature"><i class="fas fa-shield-alt"></i><span>Paiement sécurisé à la livraison</span></div>
 </div>
 <a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20passer%20une%20commande" class="whatsapp-btn-big" target="_blank"><i class="fab fa-whatsapp"></i> Discuter sur WhatsApp</a>
 <span class="whatsapp-phone"><i class="fas fa-phone"></i> +243 971 407 901</span>
@@ -722,7 +742,7 @@ Bonjour, je souhaite commander 2kg de crevettes svp
 <div class="whatsapp-msg-time">10:32</div>
 </div>
 <div class="whatsapp-msg received">
-Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de livraison ?
+Parfait ! 2kg de crevettes à 36 000 FC/kg. Total : 72 000 FC. Votre adresse de livraison ?
 <div class="whatsapp-msg-time">10:33</div>
 </div>
 </div>
@@ -732,57 +752,46 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 </div>
 </div>
 </section>
-<!-- SEASONS -->
-<section class="section seasons-section" id="saisons">
+
+<!-- INSTAGRAM -->
+<section class="section instagram-section" id="instagram">
 <div class="section-inner">
-<div class="section-header aos">
-<div class="section-label">Calendrier</div>
-<h2 class="section-title">Disponibilité <span>Saisonnière</span></h2>
-<p class="section-desc">Découvrez quels produits sont disponibles selon les saisons de l'annee.</p>
+<div class="instagram-grid">
+<div class="instagram-content aos">
+<div class="section-label">Réseaux Sociaux</div>
+<h2>Suivez-nous sur <span>Instagram</span></h2>
+<p>Découvrez nos plus belles photos de produits frais, nos recettes et les témoignages de nos clients sur Instagram.</p>
+<div class="instagram-features">
+<div class="instagram-feature"><i class="fas fa-camera"></i><span>Photos HD des produits</span></div>
+<div class="instagram-feature"><i class="fas fa-heart"></i><span>Recettes et astuces cuisine</span></div>
+<div class="instagram-feature"><i class="fas fa-users"></i><span>Communauté active</span></div>
+<div class="instagram-feature"><i class="fas fa-comment"></i><span>Contactez-nous en DM</span></div>
 </div>
-<div class="seasons-grid">
-<div class="season-card spring aos">
-<div class="season-icon">🌸</div>
-<h3 class="season-name">Printemps</h3>
-<p class="season-period">Mars - Mai</p>
-<div class="season-products">
-<span class="season-tag">Tilapia</span>
-<span class="season-tag">Capitaine</span>
-<span class="season-tag">Perche</span>
-<span class="season-tag">Sole</span>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank" class="instagram-btn-big"><i class="fab fa-instagram"></i> Suivre sur Instagram</a>
+<span class="instagram-handle"><i class="fab fa-instagram"></i> @kbb.bio92</span>
 </div>
+<div class="instagram-visual aos d2">
+<div class="instagram-card">
+<div class="instagram-card-avatar">
+<div class="instagram-card-avatar-inner"><i class="fab fa-instagram"></i></div>
 </div>
-<div class="season-card summer aos d1">
-<div class="season-icon">☀️</div>
-<h3 class="season-name">Été</h3>
-<p class="season-period">Juin - Aout</p>
-<div class="season-products">
-<span class="season-tag">Crevettes</span>
-<span class="season-tag">Crabe</span>
-<span class="season-tag">Ndakala</span>
-<span class="season-tag">Mabundu</span>
+<h3 class="instagram-card-name">KBB BIO</h3>
+<p class="instagram-card-handle">@kbb.bio92</p>
+<div class="instagram-card-stats">
+<div class="instagram-card-stat">
+<div class="instagram-card-stat-num">1.8K</div>
+<div class="instagram-card-stat-label">Abonnés</div>
 </div>
+<div class="instagram-card-stat">
+<div class="instagram-card-stat-num">320</div>
+<div class="instagram-card-stat-label">Publications</div>
 </div>
-<div class="season-card autumn aos d2">
-<div class="season-icon">🍂</div>
-<h3 class="season-name">Automne</h3>
-<p class="season-period">Septembre - Novembre</p>
-<div class="season-products">
-<span class="season-tag">Capitaine</span>
-<span class="season-tag">Tilapia</span>
-<span class="season-tag">Sole</span>
-<span class="season-tag">Perche</span>
+<div class="instagram-card-stat">
+<div class="instagram-card-stat-num">8.5K</div>
+<div class="instagram-card-stat-label">J'aime</div>
 </div>
 </div>
-<div class="season-card winter aos d3">
-<div class="season-icon">❄️</div>
-<h3 class="season-name">Hiver</h3>
-<p class="season-period">Decembre - Fevrier</p>
-<div class="season-products">
-<span class="season-tag">Crevettes</span>
-<span class="season-tag">Crabe</span>
-<span class="season-tag">Mabundu</span>
-<span class="season-tag">Ndakala</span>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank" class="instagram-card-btn"><i class="fab fa-instagram"></i> Suivre</a>
 </div>
 </div>
 </div>
@@ -805,14 +814,14 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 <div class="about-content aos d2">
 <div class="section-label">À Propos</div>
 <h2>KBB BIO : <span>L'Excellence du Poisson Frais</span></h2>
-<p>KBB BIO est votre partenaire de confiance pour l'achat de poissons frais et de fruits de mer en République Démocratique du Congo. Nous selectionnons rigoureusement chaque produit pour vous garantir fraîcheur, qualite et saveur.</p>
+<p>KBB BIO est votre partenaire de confiance pour l'achat de poissons frais et de fruits de mer en République Démocratique du Congo. Nous sélectionnons rigoureusement chaque produit pour vous garantir fraîcheur, qualité et saveur.</p>
 <p>Notre mission est simple : vous offrir les meilleurs produits de la mer, livrés rapidement a votre porte, avec un service client exceptionnel.</p>
 <div class="about-values">
 <div class="about-value">
 <i class="fas fa-check-circle"></i>
 <div>
 <strong>Fraîcheur Garantie</strong>
-<span>Produits peches le jour meme</span>
+<span>Produits pêchés le jour même</span>
 </div>
 </div>
 <div class="about-value">
@@ -832,7 +841,7 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 <div class="about-value">
 <i class="fas fa-check-circle"></i>
 <div>
-<strong>Prix Competitifs</strong>
+<strong>Prix Compétitifs</strong>
 <span>Les meilleurs prix du marché</span>
 </div>
 </div>
@@ -848,12 +857,12 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 <div class="section-header aos">
 <div class="section-label">Commande</div>
 <h2 class="section-title">Passez votre <span>Commande</span></h2>
-<p class="section-desc">Remplissez le formulaire ci-dessous et nous vous contacterons rapidement.</p>
+<p class="section-desc">Sélectionnez plusieurs produits et nous vous contacterons rapidement.</p>
 </div>
 <div class="order-grid">
 <div class="order-form-wrap aos">
 <h3>Formulaire de Commande</h3>
-<p>Remplissez les details de votre commande</p>
+<p>Choisissez vos produits et quantités</p>
 <form id="orderForm">
 <div class="form-row">
 <div class="form-group">
@@ -865,29 +874,18 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 <input type="tel" id="orderPhone" placeholder="+243 XXX XXX XXX" required>
 </div>
 </div>
+
 <div class="form-group">
-<label for="orderProduct">Produit</label>
-<select id="orderProduct" required>
-<option value="">Selectionnez un produit</option>
-<option value="crevettes" data-price="36000">Crevettes - 36 000 FC/kg</option>
-<option value="capitaine" data-price="26000">Capitaine - 26 000 FC/kg</option>
-<option value="sole" data-price="25000">Sole - 25 000 FC/kg</option>
-<option value="mabundu" data-price="25000">Mabundu Gros - 25 000 FC/kg</option>
-<option value="perche" data-price="25000">Perche - 25 000 FC/kg</option>
-<option value="crabe" data-price="25000">Crabe - 25 000 FC/kg</option>
-<option value="tilapia" data-price="25000">Tilapia - 25 000 FC/kg</option>
-<option value="ndakala" data-price="12500">Ndakala (Ekolo) - 12 500 FC</option>
-</select>
+<label>Produits</label>
+<div class="order-products-list" id="orderProductsList">
+<!-- Products will be added dynamically -->
 </div>
-<div class="form-row">
-<div class="form-group">
-<label for="orderQty">Quantite (kg)</label>
-<input type="number" id="orderQty" min="0.5" step="0.5" value="1" required>
+<button type="button" class="add-product-btn" id="addProductBtn"><i class="fas fa-plus"></i> Ajouter un produit</button>
 </div>
+
 <div class="form-group">
 <label for="orderAddress">Adresse de livraison</label>
 <input type="text" id="orderAddress" placeholder="Votre adresse" required>
-</div>
 </div>
 <div class="form-group">
 <label for="orderNotes">Notes supplémentaires</label>
@@ -895,11 +893,11 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 </div>
 <div class="order-summary">
 <h4><i class="fas fa-receipt"></i> Résumé de la commande</h4>
-<div id="orderSummaryDetails">
-<p style="color:var(--gray-400);font-size:0.9rem">Selectionnez un produit pour voir le total</p>
+<div class="order-summary-items" id="orderSummaryItems">
+<p style="color:var(--gray-400);font-size:0.9rem">Ajoutez des produits pour voir le total</p>
 </div>
 <div class="order-total">
-<span class="order-total-label">Total estime</span>
+<span class="order-total-label">Total estimé</span>
 <span class="order-total-amount" id="orderTotal">0 FC</span>
 </div>
 </div>
@@ -915,12 +913,12 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 <div class="order-info-card">
 <i class="fas fa-truck"></i>
 <h4>Livraison Rapide</h4>
-<p>Nous livrons dans toute la ville en moins de 24h. Livraison gratuite a partir de 10 000 FC.</p>
+<p>Nous livrons dans toute la ville en moins de 24h. Livraison gratuite à partir de 10 000 FC.</p>
 </div>
 <div class="order-info-card">
 <i class="fas fa-shield-alt"></i>
 <h4>Paiement Securise</h4>
-<p>Paiement a la livraison. Verifiez vos produits avant de payer.</p>
+<p>Paiement à la livraison. Verifiez vos produits avant de payer.</p>
 </div>
 <div class="order-info-card">
 <i class="fas fa-undo"></i>
@@ -943,6 +941,7 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 <a href="https://wa.me/243971407901" target="_blank" class="footer-social whatsapp"><i class="fab fa-whatsapp"></i></a>
 <a href="https://www.facebook.com/Kairosbalolebwami2025" target="_blank" class="footer-social" style="background:#1877F2;color:#fff;"><i class="fab fa-facebook-f"></i></a>
 <a href="https://www.tiktok.com/@kbb.bio92" target="_blank" class="footer-social tiktok"><i class="fab fa-tiktok"></i></a>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank" class="footer-social instagram"><i class="fab fa-instagram"></i></a>
 <a href="mailto:roddybalole@gmail.com" class="footer-social" style="background:#EA4335;color:#fff;"><i class="fas fa-envelope"></i></a>
 </div>
 </div>
@@ -971,6 +970,7 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 <div class="footer-links">
 <a href="https://wa.me/243971407901" target="_blank"><i class="fab fa-whatsapp"></i> +243 971 407 901</a>
 <a href="https://www.facebook.com/Kairosbalolebwami2025" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
 <a href="mailto:roddybalole@gmail.com"><i class="fas fa-envelope"></i> roddybalole@gmail.com</a>
 <a href="https://www.tiktok.com/@kbb.bio92" target="_blank"><i class="fab fa-tiktok"></i> @kbb.bio92</a>
 <a href="#">RDC - Kinshasa</a>
@@ -992,6 +992,10 @@ Parfait ! 2kg de crevettes a 36 000 FC/kg. Total : 72 000 FC. Votre adresse de l
 <a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20passer%20une%20commande" target="_blank" class="float-btn whatsapp">
 <i class="fab fa-whatsapp"></i>
 <span class="tooltip">Commander sur WhatsApp</span>
+</a>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank" class="float-btn instagram">
+<i class="fab fa-instagram"></i>
+<span class="tooltip">Instagram</span>
 </a>
 <a href="https://www.facebook.com/Kairosbalolebwami2025" target="_blank" class="float-btn" style="background:#1877F2;">
 <i class="fab fa-facebook-f"></i>
@@ -1083,36 +1087,131 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 counters.forEach(counter => counterObserver.observe(counter));
 
-// Order form calculations
-const orderProduct = document.getElementById('orderProduct');
-const orderQty = document.getElementById('orderQty');
-const orderTotal = document.getElementById('orderTotal');
-const orderSummaryDetails = document.getElementById('orderSummaryDetails');
+// ========== MULTI-PRODUCT ORDER SYSTEM ==========
+const productsData = [
+    { value: 'crevettes', name: 'Crevettes', price: 36000 },
+    { value: 'capitaine', name: 'Capitaine', price: 26000 },
+    { value: 'sole', name: 'Sole', price: 25000 },
+    { value: 'mabundu', name: 'Mabundu Gros', price: 25000 },
+    { value: 'perche', name: 'Perche', price: 25000 },
+    { value: 'crabe', name: 'Crabe', price: 25000 },
+    { value: 'tilapia', name: 'Tilapia', price: 25000 },
+    { value: 'ndakala', name: 'Ndakala (Ekolo)', price: 12500 }
+];
 
-function updateOrderTotal() {
-    const selectedOption = orderProduct.options[orderProduct.selectedIndex];
+let productCount = 0;
+const orderProductsList = document.getElementById('orderProductsList');
+const addProductBtn = document.getElementById('addProductBtn');
+const orderSummaryItems = document.getElementById('orderSummaryItems');
+const orderTotal = document.getElementById('orderTotal');
+
+function createProductRow() {
+    productCount++;
+    const row = document.createElement('div');
+    row.className = 'order-product-item';
+    row.dataset.rowId = productCount;
+
+    let optionsHtml = '<option value="">Sélectionnez un produit</option>';
+    productsData.forEach(p => {
+        optionsHtml += `<option value="${p.value}" data-price="${p.price}">${p.name} - ${p.price.toLocaleString('fr-FR')} FC/kg</option>`;
+    });
+
+    row.innerHTML = `
+        <div class="prod-select">
+            <select class="product-select" data-row="${productCount}">${optionsHtml}</select>
+        </div>
+        <div class="prod-qty">
+            <input type="number" class="product-qty" data-row="${productCount}" min="0.5" step="0.5" value="1" placeholder="Qté">
+        </div>
+        <div class="prod-price" data-row="${productCount}">0 FC</div>
+        <button type="button" class="prod-remove" data-row="${productCount}"><i class="fas fa-times"></i></button>
+    `;
+
+    // Add event listeners
+    const select = row.querySelector('.product-select');
+    const qtyInput = row.querySelector('.product-qty');
+    const removeBtn = row.querySelector('.prod-remove');
+
+    select.addEventListener('change', () => updateRowTotal(row));
+    qtyInput.addEventListener('input', () => updateRowTotal(row));
+    removeBtn.addEventListener('click', () => removeProductRow(row));
+
+    return row;
+}
+
+function updateRowTotal(row) {
+    const select = row.querySelector('.product-select');
+    const qtyInput = row.querySelector('.product-qty');
+    const priceDisplay = row.querySelector('.prod-price');
+
+    const selectedOption = select.options[select.selectedIndex];
     const price = parseInt(selectedOption.getAttribute('data-price') || 0);
-    const qty = parseFloat(orderQty.value) || 0;
+    const qty = parseFloat(qtyInput.value) || 0;
     const total = price * qty;
 
-    if (price > 0 && qty > 0) {
-        orderTotal.textContent = total.toLocaleString('fr-FR') + ' FC';
-        orderSummaryDetails.innerHTML = `
-            <p style="color:var(--gray-300);font-size:0.9rem;margin-bottom:0.5rem">
-                <strong>${selectedOption.text.split(' - ')[0]}</strong>
-            </p>
-            <p style="color:var(--gray-400);font-size:0.85rem">
-                ${qty} kg x ${price.toLocaleString('fr-FR')} FC/kg
-            </p>
-        `;
+    priceDisplay.textContent = total > 0 ? total.toLocaleString('fr-FR') + ' FC' : '0 FC';
+    updateOrderSummary();
+}
+
+function removeProductRow(row) {
+    const allRows = orderProductsList.querySelectorAll('.order-product-item');
+    if (allRows.length > 1) {
+        row.remove();
+        updateOrderSummary();
     } else {
-        orderTotal.textContent = '0 FC';
-        orderSummaryDetails.innerHTML = '<p style="color:var(--gray-400);font-size:0.9rem">Selectionnez un produit pour voir le total</p>';
+        // Reset the last row instead of removing it
+        const select = row.querySelector('.product-select');
+        const qtyInput = row.querySelector('.product-qty');
+        select.value = '';
+        qtyInput.value = '1';
+        row.querySelector('.prod-price').textContent = '0 FC';
+        updateOrderSummary();
     }
 }
 
-orderProduct.addEventListener('change', updateOrderTotal);
-orderQty.addEventListener('input', updateOrderTotal);
+function updateOrderSummary() {
+    const rows = orderProductsList.querySelectorAll('.order-product-item');
+    let grandTotal = 0;
+    let itemsHtml = '';
+    let hasItems = false;
+
+    rows.forEach(row => {
+        const select = row.querySelector('.product-select');
+        const qtyInput = row.querySelector('.product-qty');
+        const selectedOption = select.options[select.selectedIndex];
+        const price = parseInt(selectedOption.getAttribute('data-price') || 0);
+        const qty = parseFloat(qtyInput.value) || 0;
+        const productName = selectedOption.text.split(' - ')[0];
+        const total = price * qty;
+
+        if (price > 0 && qty > 0) {
+            hasItems = true;
+            grandTotal += total;
+            itemsHtml += `
+                <div class="order-summary-item">
+                    <span class="order-summary-item-name">${productName} x ${qty}kg</span>
+                    <span class="order-summary-item-price">${total.toLocaleString('fr-FR')} FC</span>
+                </div>
+            `;
+        }
+    });
+
+    if (hasItems) {
+        orderSummaryItems.innerHTML = itemsHtml;
+        orderTotal.textContent = grandTotal.toLocaleString('fr-FR') + ' FC';
+    } else {
+        orderSummaryItems.innerHTML = '<p style="color:var(--gray-400);font-size:0.9rem">Ajoutez des produits pour voir le total</p>';
+        orderTotal.textContent = '0 FC';
+    }
+}
+
+// Add first product row on load
+orderProductsList.appendChild(createProductRow());
+
+// Add product button
+addProductBtn.addEventListener('click', () => {
+    orderProductsList.appendChild(createProductRow());
+});
 
 // Form submission
 const orderForm = document.getElementById('orderForm');
@@ -1121,8 +1220,6 @@ orderForm.addEventListener('submit', (e) => {
 
     const name = document.getElementById('orderName').value;
     const phone = document.getElementById('orderPhone').value;
-    const product = orderProduct.options[orderProduct.selectedIndex].text;
-    const qty = orderQty.value;
     const address = document.getElementById('orderAddress').value;
     const notes = document.getElementById('orderNotes').value;
     const total = orderTotal.textContent;
@@ -1130,11 +1227,28 @@ orderForm.addEventListener('submit', (e) => {
     let message = `Bonjour KBB BIO, je souhaite passer une commande :%0A%0A`;
     message += `Nom : ${name}%0A`;
     message += `Téléphone : ${phone}%0A`;
-    message += `Produit : ${product}%0A`;
-    message += `Quantite : ${qty} kg%0A`;
-    message += `Adresse : ${address}%0A`;
-    message += `Total : ${total}%0A`;
-    if (notes) message += `Notes : ${notes}%0A`;
+    message += `Adresse : ${address}%0A%0A`;
+    message += `*Produits commandes :*%0A`;
+
+    const rows = orderProductsList.querySelectorAll('.order-product-item');
+    let itemNum = 1;
+    rows.forEach(row => {
+        const select = row.querySelector('.product-select');
+        const qtyInput = row.querySelector('.product-qty');
+        const selectedOption = select.options[select.selectedIndex];
+        const price = parseInt(selectedOption.getAttribute('data-price') || 0);
+        const qty = parseFloat(qtyInput.value) || 0;
+        const productName = selectedOption.text.split(' - ')[0];
+        const itemTotal = price * qty;
+
+        if (price > 0 && qty > 0) {
+            message += `${itemNum}. ${productName} - ${qty}kg x ${price.toLocaleString('fr-FR')} FC = ${itemTotal.toLocaleString('fr-FR')} FC%0A`;
+            itemNum++;
+        }
+    });
+
+    message += `%0A*Total : ${total}*%0A`;
+    if (notes) message += `%0ANotes : ${notes}%0A`;
 
     window.open(`https://wa.me/243971407901?text=${message}`, '_blank');
 });
