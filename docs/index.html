@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KBB BIO — Fraîcheur & Qualité au rendez-vous !</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--ocean:#0a2540;--ocean-light:#0d3a5c;--ocean-dark:#061a2e;--cyan:#00a8e8;--cyan-light:#33c3ff;--coral:#ff6b35;--coral-light:#ff8c5a;--white:#ffffff;--gray-200:#cbd5e1;--gray-300:#94a3b8;--gray-400:#64748b;--gray-500:#475569;--glass:rgba(255,255,255,0.08);--glass-border:rgba(255,255,255,0.12);--shadow-lg:0 20px 60px rgba(0,0,0,0.18);--shadow-glow:0 0 40px rgba(0,168,232,0.15);--tn:0.4s cubic-bezier(0.4,0,0.2,1);--ts:0.6s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--ocean);color:var(--white);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4,h5,h6{font-family:'Outfit',sans-serif;font-weight:700;line-height:1.2}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(0,168,232,0.3)}50%{box-shadow:0 0 40px rgba(0,168,232,0.6)}}
+@keyframes wave{0%{transform:translateX(0) scaleY(1)}50%{transform:translateX(-25%) scaleY(0.55)}100%{transform:translateX(-50%) scaleY(1)}}
+@keyframes bubble{0%{bottom:-20px;opacity:0;transform:translateX(0)}20%{opacity:0.6}100%{bottom:100vh;opacity:0;transform:translateX(30px)}}
+@keyframes glow-pulse{0%,100%{text-shadow:0 0 10px rgba(0,168,232,0.5)}50%{text-shadow:0 0 30px rgba(0,168,232,0.9),0 0 60px rgba(0,168,232,0.3)}}
+
+.aos{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.4,0,0.2,1),transform 0.8s cubic-bezier(0.4,0,0.2,1)}
+.aos.visible{opacity:1;transform:translateY(0)}
+.aos.d1{transition-delay:0.1s}.aos.d2{transition-delay:0.2s}.aos.d3{transition-delay:0.3s}.aos.d4{transition-delay:0.4s}.aos.d5{transition-delay:0.5s}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;transition:all var(--tn);background:transparent}
+.nav.scrolled{background:rgba(10,37,64,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);padding:0.6rem 2rem}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:0.75rem}
+.nav-logo img{height:45px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3))}
+.nav-logo-text{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-0.5px}
+.nav-logo-text span{color:var(--cyan)}
+.nav-links{display:flex;align-items:center;gap:2.5rem}
+.nav-links a{font-size:0.9rem;font-weight:500;color:var(--gray-200);transition:color 0.2s ease;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--cyan);transition:width var(--tn);border-radius:2px}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--coral);color:var(--white);padding:0.6rem 1.5rem;border-radius:50px;font-weight:600;font-size:0.85rem;transition:all var(--tn);box-shadow:0 4px 15px rgba(255,107,53,0.3)}
+.nav-cta:hover{background:var(--coral-light);transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,107,53,0.4)}
+.nav-mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--ocean)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(0,168,232,0.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(255,107,53,0.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(0,168,232,0.05) 0%,transparent 50%);z-index:1}
+.hero-waves{position:absolute;bottom:0;left:0;width:200%;height:180px;z-index:2;opacity:0.4}
+.hero-waves svg{width:100%;height:100%;animation:wave 15s linear infinite}
+.bubbles-container{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
+.bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(0,168,232,0.4),rgba(0,168,232,0.1));animation:bubble linear infinite}
+.bubble:nth-child(1){width:10px;height:10px;left:10%;animation-duration:8s;animation-delay:0s}
+.bubble:nth-child(2){width:15px;height:15px;left:20%;animation-duration:12s;animation-delay:2s}
+.bubble:nth-child(3){width:8px;height:8px;left:35%;animation-duration:10s;animation-delay:4s}
+.bubble:nth-child(4){width:20px;height:20px;left:50%;animation-duration:14s;animation-delay:1s}
+.bubble:nth-child(5){width:12px;height:12px;left:65%;animation-duration:9s;animation-delay:3s}
+.bubble:nth-child(6){width:18px;height:18px;left:80%;animation-duration:11s;animation-delay:5s}
+.bubble:nth-child(7){width:10px;height:10px;left:90%;animation-duration:13s;animation-delay:2s}
+.bubble:nth-child(8){width:14px;height:14px;left:45%;animation-duration:15s;animation-delay:6s}
+.hero-content{position:relative;z-index:10;text-align:center;max-width:900px;padding:0 2rem;animation:fadeInUp 1s ease-out}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--glass);border:1px solid var(--glass-border);padding:0.5rem 1.2rem;border-radius:50px;font-size:0.85rem;color:var(--cyan-light);margin-bottom:2rem;backdrop-filter:blur(10px);animation:fadeIn 1s ease-out 0.3s both}
+.hero-badge i{color:var(--coral)}
+.hero-title{font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-2px}
+.hero-title .highlight{background:linear-gradient(135deg,var(--cyan),var(--cyan-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:glow-pulse 3s ease-in-out infinite}
+.hero-subtitle{font-size:clamp(1rem,2vw,1.3rem);color:var(--gray-200);max-width:600px;margin:0 auto 2.5rem;font-weight:300;line-height:1.7}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeInUp 1s ease-out 0.6s both}
+.btn{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2.2rem;border-radius:50px;font-weight:600;font-size:0.95rem;transition:all var(--tn);cursor:pointer;border:none;font-family:'Inter',sans-serif}
+.btn-primary{background:linear-gradient(135deg,var(--cyan),var(--cyan-light));color:var(--ocean);box-shadow:0 8px 30px rgba(0,168,232,0.35)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 15px 40px rgba(0,168,232,0.5)}
+.btn-secondary{background:var(--glass);color:var(--white);border:1px solid var(--glass-border);backdrop-filter:blur(10px)}
+.btn-secondary:hover{background:rgba(255,255,255,0.12);transform:translateY(-3px)}
+.btn-coral{background:linear-gradient(135deg,var(--coral),var(--coral-light));color:var(--white);box-shadow:0 8px 30px rgba(255,107,53,0.35)}
+.btn-coral:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 15px 40px rgba(255,107,53,0.5)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:10;animation:fadeIn 1s ease-out 1s both}
+.hero-scroll i{font-size:1.5rem;color:var(--cyan);animation:float 2s ease-in-out infinite}
+
+/* SECTIONS */
+.section{padding:6rem 2rem;position:relative}
+.section-inner{max-width:1300px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-label{display:inline-block;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--cyan);margin-bottom:1rem}
+.section-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;margin-bottom:1rem;line-height:1.15}
+.section-title span{background:linear-gradient(135deg,var(--cyan),var(--cyan-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-desc{color:var(--gray-300);max-width:600px;margin:0 auto;font-size:1.05rem}
+
+/* STATS */
+.stats-section{background:linear-gradient(180deg,var(--ocean) 0%,var(--ocean-light) 100%);padding:5rem 2rem}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.stat-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2.5rem 1.5rem;text-align:center;backdrop-filter:blur(10px);transition:all var(--tn);position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--coral));opacity:0;transition:opacity var(--tn)}
+.stat-card:hover::before{opacity:1}
+.stat-card:hover{transform:translateY(-8px);border-color:rgba(0,168,232,0.3);box-shadow:var(--shadow-glow)}
+.stat-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.5rem}
+.stat-icon.cyan{background:rgba(0,168,232,0.15);color:var(--cyan)}
+.stat-icon.coral{background:rgba(255,107,53,0.15);color:var(--coral)}
+.stat-icon.green{background:rgba(34,197,94,0.15);color:#22c55e}
+.stat-number{font-family:'Outfit',sans-serif;font-size:2.8rem;font-weight:900;color:var(--white);line-height:1;margin-bottom:0.5rem}
+.stat-number span{background:linear-gradient(135deg,var(--cyan),var(--cyan-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{color:var(--gray-300);font-size:0.9rem;font-weight:500}
+
+/* PRODUCTS */
+.products-section{background:var(--ocean-dark)}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+.product-card{background:linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border:1px solid var(--glass-border);border-radius:24px;overflow:hidden;transition:all var(--tn);position:relative}
+.product-card:hover{transform:translateY(-10px);border-color:rgba(0,168,232,0.3);box-shadow:0 25px 60px rgba(0,0,0,0.3),var(--shadow-glow)}
+.product-image-wrap{position:relative;height:220px;overflow:hidden;background:linear-gradient(135deg,rgba(0,168,232,0.1),rgba(255,107,53,0.05));display:flex;align-items:center;justify-content:center}
+.product-image-wrap img{height:85%;width:auto;object-fit:contain;transition:transform var(--ts);filter:drop-shadow(0 10px 20px rgba(0,0,0,0.3))}
+.product-card:hover .product-image-wrap img{transform:scale(1.1) rotate(-3deg)}
+.product-badge{position:absolute;top:1rem;right:1rem;background:var(--coral);color:var(--white);padding:0.3rem 0.8rem;border-radius:50px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+.product-info{padding:1.5rem}
+.product-name{font-size:1.2rem;font-weight:700;margin-bottom:0.3rem}
+.product-desc{color:var(--gray-400);font-size:0.85rem;margin-bottom:1rem}
+.product-price{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;color:var(--cyan);margin-bottom:1rem}
+.product-price span{font-size:0.85rem;color:var(--gray-400);font-weight:400}
+.product-btn{width:100%;padding:0.9rem;border-radius:12px;background:linear-gradient(135deg,#25d366,#128c7e);color:var(--white);font-weight:600;font-size:0.9rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:all var(--tn);text-decoration:none}
+.product-btn:hover{transform:scale(1.03);box-shadow:0 8px 25px rgba(37,211,102,0.4)}
+
+/* PRICING TABLE */
+.pricing-section{background:linear-gradient(180deg,var(--ocean-dark) 0%,var(--ocean) 100%)}
+.pricing-table-wrap{background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;overflow:hidden;backdrop-filter:blur(10px)}
+.pricing-table{width:100%;border-collapse:collapse}
+.pricing-table thead{background:linear-gradient(135deg,rgba(0,168,232,0.2),rgba(0,168,232,0.05))}
+.pricing-table th{padding:1.2rem 1.5rem;text-align:left;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--cyan-light)}
+.pricing-table td{padding:1.2rem 1.5rem;border-bottom:1px solid var(--glass-border);vertical-align:middle}
+.pricing-table tbody tr{transition:all 0.2s ease}
+.pricing-table tbody tr:hover{background:rgba(0,168,232,0.05)}
+.pricing-table tbody tr:last-child td{border-bottom:none}
+.pricing-prod{display:flex;align-items:center;gap:1rem}
+.pricing-prod img{width:50px;height:50px;object-fit:contain;border-radius:10px;background:rgba(0,168,232,0.1);padding:5px}
+.pricing-prod-name{font-weight:600;font-size:1rem}
+.pricing-prod-tag{font-size:0.75rem;color:var(--gray-400);margin-top:0.2rem}
+.pricing-amount{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;color:var(--cyan)}
+.pricing-amount .unit{font-size:0.8rem;color:var(--gray-400);font-weight:400}
+.pricing-action{text-align:right}
+.pricing-action .btn-small{padding:0.5rem 1rem;border-radius:8px;font-size:0.8rem;font-weight:600;background:var(--coral);color:var(--white);border:none;cursor:pointer;transition:all 0.2s ease}
+.pricing-action .btn-small:hover{background:var(--coral-light);transform:scale(1.05)}
+
+/* TIKTOK */
+.tiktok-section{background:var(--ocean);position:relative;overflow:hidden}
+.tiktok-section::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,0.03) 0%,transparent 70%);border-radius:50%}
+.tiktok-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.tiktok-profile{background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;padding:2.5rem;backdrop-filter:blur(10px);text-align:center}
+.tiktok-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#000,#333);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;border:3px solid var(--white);box-shadow:0 0 30px rgba(255,255,255,0.2)}
+.tiktok-avatar i{font-size:2.5rem;color:var(--white)}
+.tiktok-username{font-size:1.5rem;font-weight:700;margin-bottom:0.3rem}
+.tiktok-handle{color:var(--gray-300);font-size:0.9rem;margin-bottom:1.5rem}
+.tiktok-stats{display:flex;justify-content:center;gap:2rem;margin-bottom:2rem}
+.tiktok-stat{text-align:center}
+.tiktok-stat-num{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800}
+.tiktok-stat-label{font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px}
+.tiktok-btn{display:inline-flex;align-items:center;gap:0.6rem;background:#000;color:var(--white);padding:0.9rem 2rem;border-radius:50px;font-weight:600;font-size:0.9rem;transition:all var(--tn);border:1px solid rgba(255,255,255,0.2)}
+.tiktok-btn:hover{background:#1a1a1a;transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.tiktok-videos{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.tiktok-video{aspect-ratio:9/16;background:linear-gradient(145deg,#1a1a2e,#16213e);border-radius:16px;overflow:hidden;position:relative;cursor:pointer;transition:all var(--tn);border:1px solid var(--glass-border)}
+.tiktok-video:hover{transform:scale(1.03);border-color:var(--cyan)}
+.tiktok-video-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:1rem}
+.tiktok-video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease}
+.tiktok-video:hover .tiktok-video-play{background:var(--cyan);transform:translate(-50%,-50%) scale(1.1)}
+.tiktok-video-play i{color:var(--white);font-size:1.2rem;margin-left:3px}
+.tiktok-video-views{font-size:0.8rem;color:var(--gray-200);display:flex;align-items:center;gap:0.3rem}
+
+/* WHATSAPP */
+.whatsapp-section{background:linear-gradient(135deg,#075e54,#128c7e);position:relative;overflow:hidden}
+.whatsapp-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:0.5}
+.whatsapp-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.whatsapp-content h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
+.whatsapp-content h2 span{color:#25d366}
+.whatsapp-content p{color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:2rem;max-width:500px}
+.whatsapp-features{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+.whatsapp-feature{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.1);padding:1rem 1.5rem;border-radius:12px;backdrop-filter:blur(10px)}
+.whatsapp-feature i{font-size:1.2rem;color:#25d366}
+.whatsapp-feature span{font-weight:500}
+.whatsapp-btn-big{display:inline-flex;align-items:center;gap:0.8rem;background:#25d366;color:var(--white);padding:1.2rem 2.5rem;border-radius:50px;font-weight:700;font-size:1.1rem;transition:all var(--tn);box-shadow:0 10px 30px rgba(37,211,102,0.3)}
+.whatsapp-btn-big:hover{background:#22c55e;transform:translateY(-3px);box-shadow:0 15px 40px rgba(37,211,102,0.4)}
+.whatsapp-phone{display:block;margin-top:1rem;color:rgba(255,255,255,0.7);font-size:0.9rem}
+.whatsapp-visual{display:flex;justify-content:center;align-items:center}
+.whatsapp-phone-mockup{width:280px;background:#1a1a2e;border-radius:30px;padding:1rem;box-shadow:0 30px 60px rgba(0,0,0,0.4);border:3px solid rgba(255,255,255,0.1)}
+.whatsapp-phone-screen{background:#0b141a;border-radius:20px;overflow:hidden;min-height:400px}
+.whatsapp-phone-header{background:#1f2c34;padding:0.8rem 1rem;display:flex;align-items:center;gap:0.8rem}
+.whatsapp-phone-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--cyan-light));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem}
+.whatsapp-phone-info{flex:1}
+.whatsapp-phone-info .name{font-size:0.85rem;font-weight:600}
+.whatsapp-phone-info .status{font-size:0.7rem;color:#25d366}
+.whatsapp-chat{padding:1rem;display:flex;flex-direction:column;gap:0.8rem}
+.whatsapp-msg{max-width:80%;padding:0.7rem 1rem;border-radius:12px;font-size:0.8rem;line-height:1.4;position:relative}
+.whatsapp-msg.received{background:#1f2c34;align-self:flex-start;border-top-left-radius:2px}
+.whatsapp-msg.sent{background:#005c4b;align-self:flex-end;border-top-right-radius:2px}
+.whatsapp-msg-time{font-size:0.65rem;color:rgba(255,255,255,0.5);text-align:right;margin-top:0.3rem}
+
+/* INSTAGRAM */
+.instagram-section{background:linear-gradient(135deg, #833ab4, #fd1d1d, #f77737, #fcaf45, #ffdc80);position:relative;overflow:hidden}
+.instagram-section::before{content:'';position:absolute;inset:0;background:rgba(10,37,64,0.3);backdrop-filter:blur(2px)}
+.instagram-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.instagram-content h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;color:var(--white)}
+.instagram-content h2 span{background:linear-gradient(135deg,#fff,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.instagram-content p{color:rgba(255,255,255,0.9);font-size:1.1rem;margin-bottom:2rem;max-width:500px}
+.instagram-features{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+.instagram-feature{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.15);padding:1rem 1.5rem;border-radius:12px;backdrop-filter:blur(10px)}
+.instagram-feature i{font-size:1.2rem;color:#fff}
+.instagram-feature span{font-weight:500;color:var(--white)}
+.instagram-btn-big{display:inline-flex;align-items:center;gap:0.8rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:var(--white);padding:1.2rem 2.5rem;border-radius:50px;font-weight:700;font-size:1.1rem;transition:all var(--tn);box-shadow:0 10px 30px rgba(131,58,180,0.3);border:2px solid rgba(255,255,255,0.2)}
+.instagram-btn-big:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(131,58,180,0.5)}
+.instagram-handle{display:block;margin-top:1rem;color:rgba(255,255,255,0.8);font-size:0.9rem}
+.instagram-visual{display:flex;justify-content:center;align-items:center}
+.instagram-card{width:320px;background:var(--white);border-radius:24px;padding:2rem;box-shadow:0 30px 60px rgba(0,0,0,0.4);text-align:center;position:relative;overflow:hidden}
+.instagram-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#833ab4,#fd1d1d,#f77737,#fcaf45,#ffdc80)}
+.instagram-card-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;padding:3px}
+.instagram-card-avatar-inner{width:84px;height:84px;border-radius:50%;background:var(--ocean);display:flex;align-items:center;justify-content:center}
+.instagram-card-avatar-inner i{font-size:2.5rem;color:var(--white)}
+.instagram-card-name{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;color:var(--ocean);margin-bottom:0.3rem}
+.instagram-card-handle{color:var(--gray-400);font-size:0.9rem;margin-bottom:1.5rem}
+.instagram-card-stats{display:flex;justify-content:center;gap:2rem;margin-bottom:1.5rem}
+.instagram-card-stat{text-align:center}
+.instagram-card-stat-num{font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ocean)}
+.instagram-card-stat-label{font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px}
+.instagram-card-btn{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:var(--white);padding:0.8rem 2rem;border-radius:50px;font-weight:600;font-size:0.9rem;transition:all var(--tn)}
+.instagram-card-btn:hover{transform:scale(1.05);box-shadow:0 8px 25px rgba(131,58,180,0.4)}
+
+/* ABOUT */
+.about-section{background:var(--ocean)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-image{position:relative}
+.about-image-main{border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--glass-border)}
+.about-image-main img{width:100%;display:block}
+.about-image-float{position:absolute;bottom:-2rem;right:-2rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:1.5rem;backdrop-filter:blur(10px);box-shadow:var(--shadow-lg);animation:float 4s ease-in-out infinite}
+.about-image-float .number{font-family:'Outfit',sans-serif;font-size:2.5rem;font-weight:900;color:var(--cyan);line-height:1}
+.about-image-float .text{font-size:0.85rem;color:var(--gray-300);margin-top:0.3rem}
+.about-content h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem}
+.about-content h2 span{background:linear-gradient(135deg,var(--cyan),var(--cyan-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.about-content p{color:var(--gray-300);margin-bottom:1.5rem;font-size:1.05rem;line-height:1.8}
+.about-values{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem}
+.about-value{display:flex;align-items:flex-start;gap:0.8rem}
+.about-value i{color:var(--cyan);font-size:1.2rem;margin-top:0.2rem}
+.about-value strong{display:block;margin-bottom:0.2rem}
+.about-value span{font-size:0.85rem;color:var(--gray-400)}
+
+/* ORDER FORM */
+.order-section{background:linear-gradient(180deg,var(--ocean-dark) 0%,var(--ocean) 100%)}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.order-form-wrap{background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;padding:2.5rem;backdrop-filter:blur(10px)}
+.order-form-wrap h3{font-size:1.5rem;margin-bottom:0.5rem}
+.order-form-wrap>p{color:var(--gray-400);margin-bottom:2rem}
+.form-group{margin-bottom:1.5rem}
+.form-group label{display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.5rem;color:var(--gray-200)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.9rem 1.2rem;background:rgba(255,255,255,0.05);border:1px solid var(--glass-border);border-radius:12px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;transition:all 0.2s ease}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,168,232,0.1)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--gray-500)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+/* MULTI-PRODUCT ORDER */
+.order-products-list{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem}
+.order-product-item{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;padding:1.2rem;display:grid;grid-template-columns:1fr auto auto auto;gap:1rem;align-items:center;transition:all 0.2s ease}
+.order-product-item:hover{border-color:rgba(0,168,232,0.2)}
+.order-product-item .prod-select{flex:1}
+.order-product-item .prod-select select{width:100%;padding:0.7rem 1rem;background:rgba(255,255,255,0.05);border:1px solid var(--glass-border);border-radius:10px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.9rem}
+.order-product-item .prod-select select option{background:var(--ocean);color:var(--white)}
+.order-product-item .prod-qty{width:100px}
+.order-product-item .prod-qty input{width:100%;padding:0.7rem 1rem;background:rgba(255,255,255,0.05);border:1px solid var(--glass-border);border-radius:10px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.9rem;text-align:center}
+.order-product-item .prod-price{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--cyan);min-width:80px;text-align:right}
+.order-product-item .prod-remove{width:36px;height:36px;border-radius:50%;background:rgba(255,107,53,0.15);color:var(--coral);border:1px solid rgba(255,107,53,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s ease;font-size:0.9rem}
+.order-product-item .prod-remove:hover{background:var(--coral);color:var(--white)}
+.add-product-btn{width:100%;padding:0.9rem;border-radius:12px;background:transparent;border:2px dashed var(--glass-border);color:var(--gray-300);font-weight:600;font-size:0.9rem;cursor:pointer;transition:all var(--tn);display:flex;align-items:center;justify-content:center;gap:0.5rem;font-family:'Inter',sans-serif}
+.add-product-btn:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,168,232,0.05)}
+
+.order-summary{background:linear-gradient(145deg,rgba(0,168,232,0.1),rgba(0,168,232,0.02));border:1px solid rgba(0,168,232,0.2);border-radius:20px;padding:2rem;margin-top:1.5rem}
+.order-summary h4{font-size:1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.order-summary h4 i{color:var(--cyan)}
+.order-summary-items{max-height:200px;overflow-y:auto;margin-bottom:1rem}
+.order-summary-item{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--glass-border)}
+.order-summary-item:last-child{border-bottom:none}
+.order-summary-item-name{color:var(--gray-200);font-size:0.9rem}
+.order-summary-item-price{font-family:'Outfit',sans-serif;font-weight:700;color:var(--cyan);font-size:0.9rem}
+.order-total{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid var(--glass-border);margin-top:1rem}
+.order-total-label{font-size:0.9rem;color:var(--gray-300)}
+.order-total-amount{font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:900;color:var(--cyan)}
+.order-submit{width:100%;margin-top:1.5rem;padding:1.1rem;background:linear-gradient(135deg,var(--cyan),var(--cyan-light));color:var(--ocean);border:none;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;transition:all var(--tn);font-family:'Inter',sans-serif}
+.order-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,168,232,0.4)}
+.order-info{display:flex;flex-direction:column;gap:1.5rem}
+.order-info-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:1.8rem;backdrop-filter:blur(10px);transition:all var(--tn)}
+.order-info-card:hover{border-color:rgba(0,168,232,0.2);transform:translateX(5px)}
+.order-info-card i{font-size:1.5rem;color:var(--cyan);margin-bottom:0.8rem}
+.order-info-card h4{font-size:1.1rem;margin-bottom:0.5rem}
+.order-info-card p{color:var(--gray-400);font-size:0.9rem}
+
+/* FOOTER */
+.footer{background:var(--ocean-dark);border-top:1px solid var(--glass-border);padding:4rem 2rem 2rem}
+.footer-inner{max-width:1300px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand img{height:50px;margin-bottom:1rem}
+.footer-brand p{color:var(--gray-400);font-size:0.9rem;line-height:1.7;max-width:300px}
+.footer-title{font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:1.5rem;color:var(--white)}
+.footer-links a{display:block;color:var(--gray-400);font-size:0.9rem;padding:0.4rem 0;transition:color 0.2s ease}
+.footer-links a:hover{color:var(--cyan)}
+.footer-socials{display:flex;gap:0.8rem;margin-top:1.5rem}
+.footer-social{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all var(--tn)}
+.footer-social.whatsapp{background:#25d366;color:var(--white)}
+.footer-social.tiktok{background:#000;color:var(--white);border:1px solid rgba(255,255,255,0.2)}
+.footer-social.instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:var(--white)}
+.footer-social:hover{transform:translateY(-3px) scale(1.1)}
+.footer-bottom{border-top:1px solid var(--glass-border);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{color:var(--gray-500);font-size:0.85rem}
+.footer-bottom-links{display:flex;gap:2rem}
+.footer-bottom-links a{color:var(--gray-500);font-size:0.85rem;transition:color 0.2s ease}
+.footer-bottom-links a:hover{color:var(--cyan)}
+
+/* FLOATING BUTTONS */
+.float-buttons{position:fixed;bottom:2rem;right:2rem;z-index:999;display:flex;flex-direction:column;gap:0.8rem}
+.float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--white);cursor:pointer;transition:all var(--tn);box-shadow:0 4px 15px rgba(0,0,0,0.3);border:none;position:relative}
+.float-btn.whatsapp{background:#25d366;animation:pulse-glow 2s ease-in-out infinite}
+.float-btn.tiktok{background:#000;border:2px solid rgba(255,255,255,0.3)}
+.float-btn.instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737)}
+.float-btn:hover{transform:scale(1.15) translateY(-3px)}
+.float-btn .tooltip{position:absolute;right:70px;top:50%;transform:translateY(-50%);background:var(--ocean);color:var(--white);padding:0.4rem 0.8rem;border-radius:8px;font-size:0.8rem;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.2s ease;border:1px solid var(--glass-border)}
+.float-btn:hover .tooltip{opacity:1;right:75px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.tiktok-grid,.whatsapp-grid,.instagram-grid,.about-grid,.order-grid{grid-template-columns:1fr;gap:3rem}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,37,64,0.95);backdrop-filter:blur(20px);flex-direction:column;padding:1.5rem;gap:1.2rem;border-top:1px solid var(--glass-border)}.nav-links.active{display:flex}.nav-mobile-toggle{display:block}.hero-title{font-size:2.2rem}.section{padding:4rem 1.5rem}.products-grid{grid-template-columns:1fr}.tiktok-videos{grid-template-columns:1fr 1fr}.about-values{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column;text-align:center}.float-buttons{bottom:1rem;right:1rem}.pricing-table thead{display:none}.pricing-table tr{display:block;margin-bottom:1rem;background:var(--glass);border-radius:16px;padding:1rem;border:1px solid var(--glass-border)}.pricing-table td{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border-bottom:1px solid var(--glass-border)}.pricing-table td::before{content:attr(data-label);font-weight:600;color:var(--cyan-light);font-size:0.8rem;text-transform:uppercase}.pricing-table td:last-child{border-bottom:none}.order-product-item{grid-template-columns:1fr;gap:0.8rem}.order-product-item .prod-price{text-align:left}.instagram-card{width:100%}}
+@media(max-width:480px){.hero-title{font-size:1.8rem}.hero-buttons{flex-direction:column;align-items:center}.btn{width:100%;justify-content:center}.stats-grid{grid-template-columns:1fr}}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<a href="#" class="nav-logo">
+<img src="https://i.imgur.com/TeH1naU.png" alt="KBB BIO Logo">
+<span class="nav-logo-text">KBB <span>BIO</span></span>
+</a>
+<div class="nav-links" id="navLinks">
+<a href="#accueil">Accueil</a>
+<a href="#produits">Produits</a>
+<a href="#tarifs">Tarifs</a>
+<a href="#apropos">À Propos</a>
+<a href="#commander">Commander</a>
+<a href="#commander" class="nav-cta">Commander Maintenant</a>
+</div>
+<button class="nav-mobile-toggle" id="navToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+<div class="hero-bg"></div>
+<div class="bubbles-container">
+<div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+<div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+</div>
+<div class="hero-waves">
+<svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+<path fill="rgba(0,168,232,0.15)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+</svg>
+</div>
+<div class="hero-content">
+<div class="hero-badge"><i class="fas fa-fish"></i><span>Poissons Frais & Fruits de Mer — RDC</span></div>
+<h1 class="hero-title"><span class="highlight">KBB BIO</span><br>Fraîcheur & Qualité<br>au rendez-vous !</h1>
+<p class="hero-subtitle">Découvrez les meilleurs poissons frais et fruits de mer de la République Démocratique du Congo. Livraison rapide, qualité premium, satisfaction garantie.</p>
+<div class="hero-buttons">
+<a href="#produits" class="btn btn-primary"><i class="fas fa-utensils"></i> Voir nos Produits</a>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20passer%20une%20commande" class="btn btn-coral" target="_blank"><i class="fab fa-whatsapp"></i> Commander sur WhatsApp</a>
+</div>
+</div>
+<div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section" id="stats">
+<div class="stats-grid">
+<div class="stat-card aos">
+<div class="stat-icon cyan"><i class="fas fa-fish"></i></div>
+<div class="stat-number"><span class="counter" data-target="15">0</span>+</div>
+<div class="stat-label">Variétés de Poissons</div>
+</div>
+<div class="stat-card aos d1">
+<div class="stat-icon coral"><i class="fas fa-clock"></i></div>
+<div class="stat-number"><span class="counter" data-target="24">0</span>h</div>
+<div class="stat-label">Livraison Rapide</div>
+</div>
+<div class="stat-card aos d2">
+<div class="stat-icon green"><i class="fas fa-smile"></i></div>
+<div class="stat-number"><span class="counter" data-target="98">0</span>%</div>
+<div class="stat-label">Clients Satisfaits</div>
+</div>
+<div class="stat-card aos d3">
+<div class="stat-icon cyan"><i class="fas fa-award"></i></div>
+<div class="stat-number"><span class="counter" data-target="5">0</span>+</div>
+<div class="stat-label">Années d'Expérience</div>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products-section" id="produits">
+<div class="section-inner">
+<div class="section-header aos">
+<div class="section-label">Notre Catalogue</div>
+<h2 class="section-title">Nos <span>Produits Premium</span></h2>
+<p class="section-desc">Des poissons frais et fruits de mer sélectionnés avec soin pour votre plus grand plaisir.</p>
+</div>
+<div class="products-grid">
+<div class="product-card aos">
+<div class="product-image-wrap">
+<img src="https://i.imgur.com/gdQYSes.png" alt="Crevettes">
+<span class="product-badge">Populaire</span>
+</div>
+<div class="product-info">
+<h3 class="product-name">Crevettes</h3>
+<p class="product-desc">Crevettes fraîches et savoureuses</p>
+<div class="product-price">36 000 <span>FC/kg</span></div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20des%20Crevettes%20%C3%A0%2036%20000%20FC%2Fkg" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+</div>
+</div>
+<div class="product-card aos d1">
+<div class="product-image-wrap">
+<img src="https://i.imgur.com/uZGUK7V.png" alt="Capitaine">
+</div>
+<div class="product-info">
+<h3 class="product-name">Capitaine</h3>
+<p class="product-desc">Poisson capitaine frais du jour</p>
+<div class="product-price">26 000 <span>FC/kg</span></div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Capitaine%20%C3%A0%2026%20000%20FC%2Fkg" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+</div>
+</div>
+<div class="product-card aos d2">
+<div class="product-image-wrap">
+<img src="https://i.imgur.com/sfAdJPq.png" alt="Sole">
+<span class="product-badge">Frais</span>
+</div>
+<div class="product-info">
+<h3 class="product-name">Sole</h3>
+<p class="product-desc">Sole délicate et fondante</p>
+<div class="product-price">25 000 <span>FC/kg</span></div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20de%20la%20Sole%20%C3%A0%2025%20000%20FC%2Fkg" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+</div>
+</div>
+<div class="product-card aos d3">
+<div class="product-image-wrap">
+<img src="https://i.imgur.com/DAMlpP6.png" alt="Mabundu">
+</div>
+<div class="product-info">
+<h3 class="product-name">Mabundu Gros</h3>
+<p class="product-desc">Mabundu gros sélectionné</p>
+<div class="product-price">25 000 <span>FC/kg</span></div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Mabundu%20Gros%20%C3%A0%2025%20000%20FC%2Fkg" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+</div>
+</div>
+<div class="product-card aos">
+<div class="product-image-wrap">
+<img src="https://i.imgur.com/Ej2gvRO.jpg" alt="Perche">
+<span class="product-badge">Nouveau</span>
+</div>
+<div class="product-info">
+<h3 class="product-name">Perche</h3>
+<p class="product-desc">Perche fraîche de qualité</p>
+<div class="product-price">25 000 <span>FC/kg</span></div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20de%20la%20Perche%20%C3%A0%2025%20000%20FC%2Fkg" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+</div>
+</div>
+<div class="product-card aos d1">
+<div class="product-image-wrap">
+<img src="https://i.imgur.com/ok3zDcX.png" alt="Crabe">
+</div>
+<div class="product-info">
+<h3 class="product-name">Crabe</h3>
+<p class="product-desc">Crabes frais et charnus</p>
+<div class="product-price">25 000 <span>FC/kg</span></div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Crabe%20%C3%A0%2025%20000%20FC%2Fkg" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+</div>
+</div>
+<div class="product-card aos d2">
+<div class="product-image-wrap">
+<img src="https://i.imgur.com/R8ZcwTO.png" alt="Tilapia">
+<span class="product-badge">Best-seller</span>
+</div>
+<div class="product-info">
+<h3 class="product-name">Tilapia</h3>
+<p class="product-desc">Tilapia frais du jour</p>
+<div class="product-price">25 000 <span>FC/kg</span></div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Tilapia%20%C3%A0%2025%20000%20FC%2Fkg" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+</div>
+</div>
+<div class="product-card aos d3">
+<div class="product-image-wrap">
+<img src="https://i.imgur.com/AKxVCre.jpg" alt="Ndakala">
+<span class="product-badge">Économique</span>
+</div>
+<div class="product-info">
+<h3 class="product-name">Ndakala (Ekolo)</h3>
+<p class="product-desc">Ndakala frais et savoureux</p>
+<div class="product-price">12 500 <span>FC</span></div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Ndakala%20%28Ekolo%29%20%C3%A0%2012%20500%20FC" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PRICING TABLE -->
+<section class="section pricing-section" id="tarifs">
+<div class="section-inner">
+<div class="section-header aos">
+<div class="section-label">Nos Prix</div>
+<h2 class="section-title">Tableau <span>Tarifaire</span></h2>
+<p class="section-desc">Des prix transparents et compétitifs pour tous nos produits de qualité.</p>
+</div>
+<div class="pricing-table-wrap aos">
+<table class="pricing-table">
+<thead>
+<tr>
+<th>Produit</th>
+<th>Prix</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Produit">
+<div class="pricing-prod">
+<img src="https://i.imgur.com/gdQYSes.png" alt="Crevettes">
+<div>
+<div class="pricing-prod-name">Crevettes</div>
+<div class="pricing-prod-tag">Fruits de mer premium</div>
+</div>
+</div>
+</td>
+<td data-label="Prix"><div class="pricing-amount">36 000 <span class="unit">FC/kg</span></div></td>
+<td data-label="Action" class="pricing-action">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20des%20Crevettes%20%C3%A0%2036%20000%20FC%2Fkg" target="_blank" class="btn-small">Commander</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit">
+<div class="pricing-prod">
+<img src="https://i.imgur.com/uZGUK7V.png" alt="Capitaine">
+<div>
+<div class="pricing-prod-name">Capitaine</div>
+<div class="pricing-prod-tag">Poisson du jour</div>
+</div>
+</div>
+</td>
+<td data-label="Prix"><div class="pricing-amount">26 000 <span class="unit">FC/kg</span></div></td>
+<td data-label="Action" class="pricing-action">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Capitaine%20%C3%A0%2026%20000%20FC%2Fkg" target="_blank" class="btn-small">Commander</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit">
+<div class="pricing-prod">
+<img src="https://i.imgur.com/sfAdJPq.png" alt="Sole">
+<div>
+<div class="pricing-prod-name">Sole</div>
+<div class="pricing-prod-tag">Délicate et fondante</div>
+</div>
+</div>
+</td>
+<td data-label="Prix"><div class="pricing-amount">25 000 <span class="unit">FC/kg</span></div></td>
+<td data-label="Action" class="pricing-action">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20de%20la%20Sole%20%C3%A0%2025%20000%20FC%2Fkg" target="_blank" class="btn-small">Commander</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit">
+<div class="pricing-prod">
+<img src="https://i.imgur.com/DAMlpP6.png" alt="Mabundu">
+<div>
+<div class="pricing-prod-name">Mabundu Gros</div>
+<div class="pricing-prod-tag">Sélection premium</div>
+</div>
+</div>
+</td>
+<td data-label="Prix"><div class="pricing-amount">25 000 <span class="unit">FC/kg</span></div></td>
+<td data-label="Action" class="pricing-action">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Mabundu%20Gros%20%C3%A0%2025%20000%20FC%2Fkg" target="_blank" class="btn-small">Commander</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit">
+<div class="pricing-prod">
+<img src="https://i.imgur.com/Ej2gvRO.jpg" alt="Perche">
+<div>
+<div class="pricing-prod-name">Perche</div>
+<div class="pricing-prod-tag">Qualité superieure</div>
+</div>
+</div>
+</td>
+<td data-label="Prix"><div class="pricing-amount">25 000 <span class="unit">FC/kg</span></div></td>
+<td data-label="Action" class="pricing-action">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20de%20la%20Perche%20%C3%A0%2025%20000%20FC%2Fkg" target="_blank" class="btn-small">Commander</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit">
+<div class="pricing-prod">
+<img src="https://i.imgur.com/ok3zDcX.png" alt="Crabe">
+<div>
+<div class="pricing-prod-name">Crabe</div>
+<div class="pricing-prod-tag">Frais et charnu</div>
+</div>
+</div>
+</td>
+<td data-label="Prix"><div class="pricing-amount">25 000 <span class="unit">FC/kg</span></div></td>
+<td data-label="Action" class="pricing-action">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Crabe%20%C3%A0%2025%20000%20FC%2Fkg" target="_blank" class="btn-small">Commander</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit">
+<div class="pricing-prod">
+<img src="https://i.imgur.com/R8ZcwTO.png" alt="Tilapia">
+<div>
+<div class="pricing-prod-name">Tilapia</div>
+<div class="pricing-prod-tag">Best-seller</div>
+</div>
+</div>
+</td>
+<td data-label="Prix"><div class="pricing-amount">25 000 <span class="unit">FC/kg</span></div></td>
+<td data-label="Action" class="pricing-action">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Tilapia%20%C3%A0%2025%20000%20FC%2Fkg" target="_blank" class="btn-small">Commander</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit">
+<div class="pricing-prod">
+<img src="https://i.imgur.com/AKxVCre.jpg" alt="Ndakala">
+<div>
+<div class="pricing-prod-name">Ndakala (Ekolo)</div>
+<div class="pricing-prod-tag">Économique</div>
+</div>
+</div>
+</td>
+<td data-label="Prix"><div class="pricing-amount">12 500 <span class="unit">FC</span></div></td>
+<td data-label="Action" class="pricing-action">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20commander%20du%20Ndakala%20%28Ekolo%29%20%C3%A0%2012%20500%20FC" target="_blank" class="btn-small">Commander</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- TIKTOK -->
+<section class="section tiktok-section" id="tiktok">
+<div class="section-inner">
+<div class="section-header aos">
+<div class="section-label">Réseaux Sociaux</div>
+<h2 class="section-title">Suivez-nous sur <span>TikTok</span></h2>
+<p class="section-desc">Découvrez nos recettes, astuces et moments en direct sur TikTok.</p>
+</div>
+<div class="tiktok-grid">
+<div class="tiktok-profile aos">
+<div class="tiktok-avatar"><i class="fab fa-tiktok"></i></div>
+<h3 class="tiktok-username">KBB BIO</h3>
+<p class="tiktok-handle">@kbb.bio92</p>
+<div class="tiktok-stats">
+<div class="tiktok-stat">
+<div class="tiktok-stat-num">2.5K</div>
+<div class="tiktok-stat-label">Abonnés</div>
+</div>
+<div class="tiktok-stat">
+<div class="tiktok-stat-num">15K</div>
+<div class="tiktok-stat-label">J'aime</div>
+</div>
+<div class="tiktok-stat">
+<div class="tiktok-stat-num">120</div>
+<div class="tiktok-stat-label">Vidéos</div>
+</div>
+</div>
+<a href="https://www.tiktok.com/@kbb.bio92" target="_blank" class="tiktok-btn"><i class="fab fa-tiktok"></i> Suivre sur TikTok</a>
+</div>
+<div class="tiktok-videos aos d2">
+<div class="tiktok-video">
+<div class="tiktok-video-overlay">
+<div class="tiktok-video-play"><i class="fas fa-play"></i></div>
+<div class="tiktok-video-views"><i class="fas fa-eye"></i> 1.2K vues</div>
+</div>
+</div>
+<div class="tiktok-video">
+<div class="tiktok-video-overlay">
+<div class="tiktok-video-play"><i class="fas fa-play"></i></div>
+<div class="tiktok-video-views"><i class="fas fa-eye"></i> 850 vues</div>
+</div>
+</div>
+<div class="tiktok-video">
+<div class="tiktok-video-overlay">
+<div class="tiktok-video-play"><i class="fas fa-play"></i></div>
+<div class="tiktok-video-views"><i class="fas fa-eye"></i> 2.1K vues</div>
+</div>
+</div>
+<div class="tiktok-video">
+<div class="tiktok-video-overlay">
+<div class="tiktok-video-play"><i class="fas fa-play"></i></div>
+<div class="tiktok-video-views"><i class="fas fa-eye"></i> 1.5K vues</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHATSAPP -->
+<section class="section whatsapp-section" id="whatsapp">
+<div class="section-inner">
+<div class="whatsapp-grid">
+<div class="whatsapp-content aos">
+<div class="section-label">Contact Direct</div>
+<h2>Commandez sur <span>WhatsApp</span></h2>
+<p>Contactez-nous directement sur WhatsApp pour passer votre commande en quelques clics. Réponse rapide garantie !</p>
+<div class="whatsapp-features">
+<div class="whatsapp-feature"><i class="fas fa-bolt"></i><span>Réponse en 5 minutes</span></div>
+<div class="whatsapp-feature"><i class="fas fa-camera"></i><span>Photos en direct des produits</span></div>
+<div class="whatsapp-feature"><i class="fas fa-truck"></i><span>Suivi de livraison en temps réel</span></div>
+<div class="whatsapp-feature"><i class="fas fa-shield-alt"></i><span>Paiement sécurisé à la livraison</span></div>
+</div>
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20passer%20une%20commande" class="whatsapp-btn-big" target="_blank"><i class="fab fa-whatsapp"></i> Discuter sur WhatsApp</a>
+<span class="whatsapp-phone"><i class="fas fa-phone"></i> +243 971 407 901</span>
+</div>
+<div class="whatsapp-visual aos d2">
+<div class="whatsapp-phone-mockup">
+<div class="whatsapp-phone-screen">
+<div class="whatsapp-phone-header">
+<div class="whatsapp-phone-avatar">KB</div>
+<div class="whatsapp-phone-info">
+<div class="name">KBB BIO</div>
+<div class="status">En ligne</div>
+</div>
+</div>
+<div class="whatsapp-chat">
+<div class="whatsapp-msg received">
+Bonjour ! Bienvenue chez KBB BIO. Comment puis-je vous aider aujourd'hui ?
+<div class="whatsapp-msg-time">10:30</div>
+</div>
+<div class="whatsapp-msg sent">
+Bonjour, je souhaite commander 2kg de crevettes svp
+<div class="whatsapp-msg-time">10:32</div>
+</div>
+<div class="whatsapp-msg received">
+Parfait ! 2kg de crevettes à 36 000 FC/kg. Total : 72 000 FC. Votre adresse de livraison ?
+<div class="whatsapp-msg-time">10:33</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section instagram-section" id="instagram">
+<div class="section-inner">
+<div class="instagram-grid">
+<div class="instagram-content aos">
+<div class="section-label">Réseaux Sociaux</div>
+<h2>Suivez-nous sur <span>Instagram</span></h2>
+<p>Découvrez nos plus belles photos de produits frais, nos recettes et les témoignages de nos clients sur Instagram.</p>
+<div class="instagram-features">
+<div class="instagram-feature"><i class="fas fa-camera"></i><span>Photos HD des produits</span></div>
+<div class="instagram-feature"><i class="fas fa-heart"></i><span>Recettes et astuces cuisine</span></div>
+<div class="instagram-feature"><i class="fas fa-users"></i><span>Communauté active</span></div>
+<div class="instagram-feature"><i class="fas fa-comment"></i><span>Contactez-nous en DM</span></div>
+</div>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank" class="instagram-btn-big"><i class="fab fa-instagram"></i> Suivre sur Instagram</a>
+<span class="instagram-handle"><i class="fab fa-instagram"></i> @kbb.bio92</span>
+</div>
+<div class="instagram-visual aos d2">
+<div class="instagram-card">
+<div class="instagram-card-avatar">
+<div class="instagram-card-avatar-inner"><i class="fab fa-instagram"></i></div>
+</div>
+<h3 class="instagram-card-name">KBB BIO</h3>
+<p class="instagram-card-handle">@kbb.bio92</p>
+<div class="instagram-card-stats">
+<div class="instagram-card-stat">
+<div class="instagram-card-stat-num">1.8K</div>
+<div class="instagram-card-stat-label">Abonnés</div>
+</div>
+<div class="instagram-card-stat">
+<div class="instagram-card-stat-num">320</div>
+<div class="instagram-card-stat-label">Publications</div>
+</div>
+<div class="instagram-card-stat">
+<div class="instagram-card-stat-num">8.5K</div>
+<div class="instagram-card-stat-label">J'aime</div>
+</div>
+</div>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank" class="instagram-card-btn"><i class="fab fa-instagram"></i> Suivre</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section" id="apropos">
+<div class="section-inner">
+<div class="about-grid">
+<div class="about-image aos">
+<div class="about-image-main">
+<img src="https://i.imgur.com/TeH1naU.png" alt="KBB BIO - Poissons frais RDC">
+</div>
+<div class="about-image-float">
+<div class="number">5+</div>
+<div class="text">Années d'experience</div>
+</div>
+</div>
+<div class="about-content aos d2">
+<div class="section-label">À Propos</div>
+<h2>KBB BIO : <span>L'Excellence du Poisson Frais</span></h2>
+<p>KBB BIO est votre partenaire de confiance pour l'achat de poissons frais et de fruits de mer en République Démocratique du Congo. Nous sélectionnons rigoureusement chaque produit pour vous garantir fraîcheur, qualité et saveur.</p>
+<p>Notre mission est simple : vous offrir les meilleurs produits de la mer, livrés rapidement a votre porte, avec un service client exceptionnel.</p>
+<div class="about-values">
+<div class="about-value">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>Fraîcheur Garantie</strong>
+<span>Produits pêchés le jour même</span>
+</div>
+</div>
+<div class="about-value">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>Livraison Rapide</strong>
+<span>Livraison en 24h maximum</span>
+</div>
+</div>
+<div class="about-value">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>Qualité Premium</strong>
+<span>Selection rigoureuse des produits</span>
+</div>
+</div>
+<div class="about-value">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>Prix Compétitifs</strong>
+<span>Les meilleurs prix du marché</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="section order-section" id="commander">
+<div class="section-inner">
+<div class="section-header aos">
+<div class="section-label">Commande</div>
+<h2 class="section-title">Passez votre <span>Commande</span></h2>
+<p class="section-desc">Sélectionnez plusieurs produits et nous vous contacterons rapidement.</p>
+</div>
+<div class="order-grid">
+<div class="order-form-wrap aos">
+<h3>Formulaire de Commande</h3>
+<p>Choisissez vos produits et quantités</p>
+<form id="orderForm">
+<div class="form-row">
+<div class="form-group">
+<label for="orderName">Nom complet</label>
+<input type="text" id="orderName" placeholder="Votre nom" required>
+</div>
+<div class="form-group">
+<label for="orderPhone">Téléphone</label>
+<input type="tel" id="orderPhone" placeholder="+243 XXX XXX XXX" required>
+</div>
+</div>
+
+<div class="form-group">
+<label>Produits</label>
+<div class="order-products-list" id="orderProductsList">
+<!-- Products will be added dynamically -->
+</div>
+<button type="button" class="add-product-btn" id="addProductBtn"><i class="fas fa-plus"></i> Ajouter un produit</button>
+</div>
+
+<div class="form-group">
+<label for="orderAddress">Adresse de livraison</label>
+<input type="text" id="orderAddress" placeholder="Votre adresse" required>
+</div>
+<div class="form-group">
+<label for="orderNotes">Notes supplémentaires</label>
+<textarea id="orderNotes" rows="3" placeholder="Instructions spéciales..."></textarea>
+</div>
+<div class="order-summary">
+<h4><i class="fas fa-receipt"></i> Résumé de la commande</h4>
+<div class="order-summary-items" id="orderSummaryItems">
+<p style="color:var(--gray-400);font-size:0.9rem">Ajoutez des produits pour voir le total</p>
+</div>
+<div class="order-total">
+<span class="order-total-label">Total estimé</span>
+<span class="order-total-amount" id="orderTotal">0 FC</span>
+</div>
+</div>
+<button type="submit" class="order-submit"><i class="fab fa-whatsapp"></i> Envoyer la commande sur WhatsApp</button>
+</form>
+</div>
+<div class="order-info aos d2">
+<div class="order-info-card">
+<i class="fas fa-phone-alt"></i>
+<h4>Contact Direct</h4>
+<p>Appelez-nous au +243 971 407 901 pour toute question ou commande urgente.</p>
+</div>
+<div class="order-info-card">
+<i class="fas fa-truck"></i>
+<h4>Livraison Rapide</h4>
+<p>Nous livrons dans toute la ville en moins de 24h. Livraison gratuite à partir de 10 000 FC.</p>
+</div>
+<div class="order-info-card">
+<i class="fas fa-shield-alt"></i>
+<h4>Paiement Securise</h4>
+<p>Paiement à la livraison. Verifiez vos produits avant de payer.</p>
+</div>
+<div class="order-info-card">
+<i class="fas fa-undo"></i>
+<h4>Satisfaction Garantie</h4>
+<p>Produit non conforme ? Nous le remplaçons gratuitement.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-grid">
+<div class="footer-brand">
+<img src="https://i.imgur.com/TeH1naU.png" alt="KBB BIO Logo">
+<p>KBB BIO - Votre partenaire de confiance pour les poissons frais et fruits de mer en République Démocratique du Congo.</p>
+<div class="footer-socials">
+<a href="https://wa.me/243971407901" target="_blank" class="footer-social whatsapp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://www.facebook.com/Kairosbalolebwami2025" target="_blank" class="footer-social" style="background:#1877F2;color:#fff;"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.tiktok.com/@kbb.bio92" target="_blank" class="footer-social tiktok"><i class="fab fa-tiktok"></i></a>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank" class="footer-social instagram"><i class="fab fa-instagram"></i></a>
+<a href="mailto:roddybalole@gmail.com" class="footer-social" style="background:#EA4335;color:#fff;"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+<div>
+<h4 class="footer-title">Navigation</h4>
+<div class="footer-links">
+<a href="#accueil">Accueil</a>
+<a href="#produits">Produits</a>
+<a href="#tarifs">Tarifs</a>
+<a href="#apropos">À Propos</a>
+<a href="#commander">Commander</a>
+</div>
+</div>
+<div>
+<h4 class="footer-title">Produits</h4>
+<div class="footer-links">
+<a href="#produits">Crevettes</a>
+<a href="#produits">Capitaine</a>
+<a href="#produits">Sole</a>
+<a href="#produits">Tilapia</a>
+<a href="#produits">Crabe</a>
+</div>
+</div>
+<div>
+<h4 class="footer-title">Contact</h4>
+<div class="footer-links">
+<a href="https://wa.me/243971407901" target="_blank"><i class="fab fa-whatsapp"></i> +243 971 407 901</a>
+<a href="https://www.facebook.com/Kairosbalolebwami2025" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+<a href="mailto:roddybalole@gmail.com"><i class="fas fa-envelope"></i> roddybalole@gmail.com</a>
+<a href="https://www.tiktok.com/@kbb.bio92" target="_blank"><i class="fab fa-tiktok"></i> @kbb.bio92</a>
+<a href="#">RDC - Kinshasa</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p> 2025 KBB BIO. Tous droits réservés.</p>
+<div class="footer-bottom-links">
+<a href="#">Politique de confidentialité</a>
+<a href="#">Conditions d'utilisation</a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-buttons">
+<a href="https://wa.me/243971407901?text=Bonjour%20KBB%20BIO%2C%20je%20souhaite%20passer%20une%20commande" target="_blank" class="float-btn whatsapp">
+<i class="fab fa-whatsapp"></i>
+<span class="tooltip">Commander sur WhatsApp</span>
+</a>
+<a href="https://www.instagram.com/kbb.bio92" target="_blank" class="float-btn instagram">
+<i class="fab fa-instagram"></i>
+<span class="tooltip">Instagram</span>
+</a>
+<a href="https://www.facebook.com/Kairosbalolebwami2025" target="_blank" class="float-btn" style="background:#1877F2;">
+<i class="fab fa-facebook-f"></i>
+<span class="tooltip">Facebook</span>
+</a>
+<a href="https://www.tiktok.com/@kbb.bio92" target="_blank" class="float-btn tiktok">
+<i class="fab fa-tiktok"></i>
+<span class="tooltip">Suivre sur TikTok</span>
+</a>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+// Navigation scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// Mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = navToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+
+// Close mobile menu on link click
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = navToggle.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+    });
+});
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.aos').forEach(el => {
+    observer.observe(el);
+});
+
+// Counter animation
+const counters = document.querySelectorAll('.counter');
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+
+            updateCounter();
+            counterObserver.unobserve(counter);
+        }
+    });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => counterObserver.observe(counter));
+
+// ========== MULTI-PRODUCT ORDER SYSTEM ==========
+const productsData = [
+    { value: 'crevettes', name: 'Crevettes', price: 36000 },
+    { value: 'capitaine', name: 'Capitaine', price: 26000 },
+    { value: 'sole', name: 'Sole', price: 25000 },
+    { value: 'mabundu', name: 'Mabundu Gros', price: 25000 },
+    { value: 'perche', name: 'Perche', price: 25000 },
+    { value: 'crabe', name: 'Crabe', price: 25000 },
+    { value: 'tilapia', name: 'Tilapia', price: 25000 },
+    { value: 'ndakala', name: 'Ndakala (Ekolo)', price: 12500 }
+];
+
+let productCount = 0;
+const orderProductsList = document.getElementById('orderProductsList');
+const addProductBtn = document.getElementById('addProductBtn');
+const orderSummaryItems = document.getElementById('orderSummaryItems');
+const orderTotal = document.getElementById('orderTotal');
+
+function createProductRow() {
+    productCount++;
+    const row = document.createElement('div');
+    row.className = 'order-product-item';
+    row.dataset.rowId = productCount;
+
+    let optionsHtml = '<option value="">Sélectionnez un produit</option>';
+    productsData.forEach(p => {
+        optionsHtml += `<option value="${p.value}" data-price="${p.price}">${p.name} - ${p.price.toLocaleString('fr-FR')} FC/kg</option>`;
+    });
+
+    row.innerHTML = `
+        <div class="prod-select">
+            <select class="product-select" data-row="${productCount}">${optionsHtml}</select>
+        </div>
+        <div class="prod-qty">
+            <input type="number" class="product-qty" data-row="${productCount}" min="0.5" step="0.5" value="1" placeholder="Qté">
+        </div>
+        <div class="prod-price" data-row="${productCount}">0 FC</div>
+        <button type="button" class="prod-remove" data-row="${productCount}"><i class="fas fa-times"></i></button>
+    `;
+
+    // Add event listeners
+    const select = row.querySelector('.product-select');
+    const qtyInput = row.querySelector('.product-qty');
+    const removeBtn = row.querySelector('.prod-remove');
+
+    select.addEventListener('change', () => updateRowTotal(row));
+    qtyInput.addEventListener('input', () => updateRowTotal(row));
+    removeBtn.addEventListener('click', () => removeProductRow(row));
+
+    return row;
+}
+
+function updateRowTotal(row) {
+    const select = row.querySelector('.product-select');
+    const qtyInput = row.querySelector('.product-qty');
+    const priceDisplay = row.querySelector('.prod-price');
+
+    const selectedOption = select.options[select.selectedIndex];
+    const price = parseInt(selectedOption.getAttribute('data-price') || 0);
+    const qty = parseFloat(qtyInput.value) || 0;
+    const total = price * qty;
+
+    priceDisplay.textContent = total > 0 ? total.toLocaleString('fr-FR') + ' FC' : '0 FC';
+    updateOrderSummary();
+}
+
+function removeProductRow(row) {
+    const allRows = orderProductsList.querySelectorAll('.order-product-item');
+    if (allRows.length > 1) {
+        row.remove();
+        updateOrderSummary();
+    } else {
+        // Reset the last row instead of removing it
+        const select = row.querySelector('.product-select');
+        const qtyInput = row.querySelector('.product-qty');
+        select.value = '';
+        qtyInput.value = '1';
+        row.querySelector('.prod-price').textContent = '0 FC';
+        updateOrderSummary();
+    }
+}
+
+function updateOrderSummary() {
+    const rows = orderProductsList.querySelectorAll('.order-product-item');
+    let grandTotal = 0;
+    let itemsHtml = '';
+    let hasItems = false;
+
+    rows.forEach(row => {
+        const select = row.querySelector('.product-select');
+        const qtyInput = row.querySelector('.product-qty');
+        const selectedOption = select.options[select.selectedIndex];
+        const price = parseInt(selectedOption.getAttribute('data-price') || 0);
+        const qty = parseFloat(qtyInput.value) || 0;
+        const productName = selectedOption.text.split(' - ')[0];
+        const total = price * qty;
+
+        if (price > 0 && qty > 0) {
+            hasItems = true;
+            grandTotal += total;
+            itemsHtml += `
+                <div class="order-summary-item">
+                    <span class="order-summary-item-name">${productName} x ${qty}kg</span>
+                    <span class="order-summary-item-price">${total.toLocaleString('fr-FR')} FC</span>
+                </div>
+            `;
+        }
+    });
+
+    if (hasItems) {
+        orderSummaryItems.innerHTML = itemsHtml;
+        orderTotal.textContent = grandTotal.toLocaleString('fr-FR') + ' FC';
+    } else {
+        orderSummaryItems.innerHTML = '<p style="color:var(--gray-400);font-size:0.9rem">Ajoutez des produits pour voir le total</p>';
+        orderTotal.textContent = '0 FC';
+    }
+}
+
+// Add first product row on load
+orderProductsList.appendChild(createProductRow());
+
+// Add product button
+addProductBtn.addEventListener('click', () => {
+    orderProductsList.appendChild(createProductRow());
+});
+
+// Form submission
+const orderForm = document.getElementById('orderForm');
+orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('orderName').value;
+    const phone = document.getElementById('orderPhone').value;
+    const address = document.getElementById('orderAddress').value;
+    const notes = document.getElementById('orderNotes').value;
+    const total = orderTotal.textContent;
+
+    let message = `Bonjour KBB BIO, je souhaite passer une commande :%0A%0A`;
+    message += `Nom : ${name}%0A`;
+    message += `Téléphone : ${phone}%0A`;
+    message += `Adresse : ${address}%0A%0A`;
+    message += `*Produits commandes :*%0A`;
+
+    const rows = orderProductsList.querySelectorAll('.order-product-item');
+    let itemNum = 1;
+    rows.forEach(row => {
+        const select = row.querySelector('.product-select');
+        const qtyInput = row.querySelector('.product-qty');
+        const selectedOption = select.options[select.selectedIndex];
+        const price = parseInt(selectedOption.getAttribute('data-price') || 0);
+        const qty = parseFloat(qtyInput.value) || 0;
+        const productName = selectedOption.text.split(' - ')[0];
+        const itemTotal = price * qty;
+
+        if (price > 0 && qty > 0) {
+            message += `${itemNum}. ${productName} - ${qty}kg x ${price.toLocaleString('fr-FR')} FC = ${itemTotal.toLocaleString('fr-FR')} FC%0A`;
+            itemNum++;
+        }
+    });
+
+    message += `%0A*Total : ${total}*%0A`;
+    if (notes) message += `%0ANotes : ${notes}%0A`;
+
+    window.open(`https://wa.me/243971407901?text=${message}`, '_blank');
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>
